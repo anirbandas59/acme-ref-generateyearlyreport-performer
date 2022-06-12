@@ -1,6 +1,12 @@
+# Internal Folders
 .local/
 .settings/
 .variations/
 .screenshots/
 .project/
 .tmh/
+
+# Extensions
+*.csv
+*.xlsx
+*.png

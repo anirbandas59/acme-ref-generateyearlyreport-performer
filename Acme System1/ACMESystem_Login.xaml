@@ -1,0 +1,259 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ACMESystem_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_AcmeSystemURL" Type="InArgument(x:String)" />
+    <x:Property Name="in_AcmeSystemCredential" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1119,2566</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ACMESystem_Login_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="35">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Opens a Edge browser to the input URL" DisplayName="ACMESystem_Login" sap:VirtualizedContainerService.HintSize="680,2501" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ss:SecureString" Name="dt_Acme_Password" />
+      <Variable x:TypeArguments="x:String" Name="dt_Acme_Username" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get Credentials stored in Orchestrator" AssetName="[in_AcmeSystemCredential]" DisplayName="Get Credential - ACME Credential" FolderPath="Academy" sap:VirtualizedContainerService.HintSize="638,211" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[dt_Acme_Password]" Username="[dt_Acme_Username]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetRobotCredential>
+    <If sap2010:Annotation.AnnotationText="Validate username and password generated" Condition="[dt_Acme_Username.Trim.Length &gt; 0]" DisplayName="Check for non empty credential" sap:VirtualizedContainerService.HintSize="638,401" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Valid Credential Found" sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message - Valid Credentials found" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Credential fetched for &quot; + dt_Acme_Username]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_AcmeSystemURL.Length &gt; 0]" DisplayName="Check for non empty URL" sap:VirtualizedContainerService.HintSize="638,1686" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence DisplayName="Launch ACME System" sap:VirtualizedContainerService.HintSize="602,1499" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard WebDriverMode="{x:Null}" sap2010:Annotation.AnnotationText="Open Edge browser to log in to ACME system using credentials" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Log In to ACME System" sap:VirtualizedContainerService.HintSize="560,1407" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="99a4b847-1e39-4414-ac18-f5ea284dd39f" Version="V1">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Log in to ACME system" sap:VirtualizedContainerService.HintSize="526,1160" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="PageHeader" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Check Current Page Header" sap:VirtualizedContainerService.HintSize="484,156" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="99a4b847-1e39-4414-ac18-f5ea284dd39f" Version="V1">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/home" DesignTimeRectangle="398, 169, 1140, 50" FriendlyName="'Dashboard'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' /&gt;" Guid="ac3fd5c7-afbf-4f36-bb8e-15b937078005" InformativeScreenshot="a4a1fa222833b399c9bb71a77dd3b714.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Dashboard' /&gt;" SearchSteps="FuzzySelector">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="383, 79, 162, 50" ElementType="Text" FriendlyName="'ACME System 1'" FullSelectorArgument="&lt;webctrl tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' aaname='ACME System 1' check:text='ACME System 1' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKYAAAA2CAYAAABN7uI0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAcGSURBVHhe7ZltSxtLFMd92c8hIUhe7MVAUxrJi+ZSy00JBaUrKeaCkVuyYPIiaHHBla7oxRWjLGWRRfJZzz1nZzY7+xRtMbfTeoQfmHna2Zn/nIfZlY2NDWAY3VgZDofAMLqxsrq6CgyjGyxMRktYmIyWsDAZLWFhMlrCwmS0hIXJaAkLk9ESFiajJSxMRktYmIyWsDAZLWFhMlrCwmS0hIXJaAkLk9ESFiajJSxMRkuWI8zuEYSzGczujqBbKahXWWuCeeCCF4Qwoz5IGHjg7Hegnum7dSLqZzMXerV0XUITrBvZ7mRrXt4cTufjl6K0L8VoQX9yAf5d0q9svk/Geges8wl0i+p+KgbuSfC4dftOliLM7hcUWRBAgJvm9mqFbYjqGwu8e9zc+wC8Ywv6OyaYuxbYl/iytOnXFrSUzU6EieN+Khl3w4KpbJMXZgjTUxvs4xL+bqfHymJsgROIscMrV/bDQxWL9Opzar5PhZi7A1sFdT+NSh26h35unZ+KpxdmrQcuii0Y92Hk02YNoFHUzjDBoQ0NHDDX8/WNXTeyusFhZ14mhDmFKVnEsx7UlPYx0Sb6PviFwpyCtZHv81jaB7QRATjbRqauinXCIi86iD+KbsKstUywY6/0qwiz9snFyYZw9D7eSB9Gb/LtRB226+brBA0YXIYQXKIVkmVCmA5Y0UYVufM20GGYDi1wliDM+PmFAqEDic8M5UES71f0PJzjN2VuxiZYX30IyXPQnO98cIdJWKB6iawIqq9RIFdKCHTlwOCdemhkWHNiQuOjDdNQjuG7YFG7tTYM4mffozc5xnYPWnz0GjQGermLPVOOr70wUUxXOFGMLTv0W7rV8Es3005uzrcRtFPli5kL4+UAPBw3587fjNBSkhjk4j2xMBv7Ho4RgLvbhGpBfQr57tNhM13+5whDnPhASuFgjGoP+2Du9ME6Fe7RPxBhRf2tCQOK42YeTCjUeVuPymsfbAhIUDd4UHdFCOREVky16PH4GFbdT8GhZ+xPMJ7HsjsPLq7RI52PMITKP7ecLhxd22C+ruL/sfB1F6bcjGAcv5yceDYJqqAbJ+GcmknZI0gsljwAGXceWakbC5rxqc4Jk/qX42wnYxVSacHgXMa/aGG8swmKYgs2Xxa5bznHaD5JeXuM/eP1kOvlfEzqKaHon5P1SzxF3pULzzA762cSLgN6Z1juxwderj8dyFbSTng1fAauvzHvK43F9efi0KuQX0SYRa5bWJlM7BUnKN/5QqorFeOq7lxslrffwP/LhLk4+ekXhBx5qmjFMH4+8yCIXSMRTsHeSVtSMUfVSnfgCOPquQeR8fjsFp/9tgG1EjeaE2bLimJo/5isLFpLBWFd42dK4dxiEqmMt7rtRHNOH4hVME+xbeYgLeZXEGYFTTwlM/PTKpFuN50ESeH8sMXE31l3HrlIDwYvqe1yXHkRVaMJmzuxGyXX3Urq5Rzn7vw9XaOJ+Dtu09q7EC6Z5otWOMA40dpppyxhTphSWIuwP1BbKZys2GJhZjxEtL6/nTDju8tSVEsqX+iBGLM9xsD81oX+a/E7JcyMO49c5Fz8/58w51Qa8Jnmc28r9411TOCwTM6rc4iJShx/q6zVI3Hb/ypJkHJVVibMB0MPFmYNel9pQX2wMVPLuhdzfBEthJoEPZiVV2QcpcSnaWFKV3lP7lzER8KNU90ShPkKrR+KJomf80T3t6qAEBHPkSUXbnxR/4hKDdeG5ppY1pwwI+/wiLGevTDlVUnpnWXs5iMRyTJDxleF95gGbI5pM9AN/pNktVlhzt354ZFw4/NxlmEx5UHB7Hb0l8iMU7zqg0vvmF0DGUd6Jw7OMR1/V7cxsw6D3OE0dukgLxBmPJc7XDsjLiMMjBPxcIQO9P6g389cmIUJTgZhIVWrhhuA7t8ncapffvZH4NLLYtsAXzjJGguEGbtzEuHlAOrz8jJhPvDlB5OJhddXmHRMY1d754Er+7nxXSKKVs1+BdKbUL9s/F3rgk1XN9jPPRiI5OXgQqwJZsexQOp7tL4heGNMduR1kYHiIqtJfe19XDfli1kS5z5rYeZdbiGFSRCy3sFMEjNcsjZUj4S3FzDJZLhEXpjJofD2VCtWJszkGcWkxy6E5nuM4lG+7c/Q6nknA+gUfMEiaj1xPVN4R7jehZEaW9I11LEJzTWljdGFybV8nnKdY7wbgKNesNN9aGrdnrnFZB4gEsISE6/fEBbm0pGX3mXxN1MIC3NptKGP8acTxX0hus3y+JvJw8JcGpswoU98FDMebKaSOOZhWJiMlrAwGS1hYTJawsJktISFyWgJC5PREhYmoyUsTEZLWJiMlrAwGS1hYTJawsJktISFyWgJC5PREhYmoyUrL168AIbRjRXgP/7T7g/gPwUgG4kwCwbOAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <uix:NGetText.Text>
+                      <OutArgument x:TypeArguments="x:String">[PageHeader]</OutArgument>
+                    </uix:NGetText.Text>
+                  </uix:NGetText>
+                  <If Condition="[PageHeader.Trim.ToLower.Equals(&quot;login&quot;)]" DisplayName="If Login Page is displayed" sap:VirtualizedContainerService.HintSize="484,870" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If.Then>
+                      <Sequence DisplayName="Log In" sap:VirtualizedContainerService.HintSize="376,682" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter Email or Username" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="99a4b847-1e39-4414-ac18-f5ea284dd39f" Text="[dt_Acme_Username]" Version="V1">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" DesignTimeRectangle="468, 376, 485, 34" ElementType="InputBox" FriendlyName="'INPUT email'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='email' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='email' aaname='Email:' /&gt;" Guid="6b7d4961-bd51-4f08-817e-372d09aa63b7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAekAAAAmCAYAAADgB2NCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGDSURBVHhe7dgxisJQGIXR2f/aJCtIZyGCiAgBxZg33CEJWkxp/Itz4BZ5ef1H8tMAgJJEGgCKeov0MAyt7/vWdV3b7XZmZma2wdLd9DcdfrVGOi9yab/ft9Pp1M7ns5mZmW2wdDf9TYdfQ71GOgXPhev12u73e3s+n2ZmZrbB0t30Nx1OjxdrpFPvy+XSxnFs0zTNpwDAp6W76W86nB4v1kjnn/jtdhNoAPiC9DcdTo8Xb5HOJzcA8B3psEgDQEEiDQBFiTQAFCXSAFCUSANAUSINAEWJNAAUJdIAUJRIA0BRIg0ARYk0ABQl0gBQlEgDQFEiDQBFiTQAFCXSAFCUSANAUSINAEWJNAAUJdIAUJRIA0BRIg0ARYk0ABQl0gBQ1L+R7rquPR6P+QkA2Fo6nB4v1kj3fd8Oh0Obpmk+AQC2kv6mw+nxYo30MAx/9T4ej20cx/kUAPi0dDf9TYfT48Ua6ciLFDyX8k/czMzMPr90N/19DXS8RRoAqEOkAaCk1n4BOGRylpSr+hAAAAAASUVORK5CYII=" InformativeScreenshot="b12cda57447e12595e59c62dddaf9059.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="FuzzySelector, Image">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="468, 351, 42, 20" ElementType="Text" FriendlyName="'Email'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' aaname='Email:' check:text='Email:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAAYCAYAAACFms+HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADgSURBVFhH7ZOBDYMgEEW7E3PJKsRNYBLjGCbscIXqb+WUlCC9xoSf/ETguHse8KCbqoNLq4NLq4NLawc+k1GKVMba+S2urbzTSX4+zunv4FwXwE34ysmTHWKMJusM+ymsHXMA5u3Bhuh0LdvxaaszplSV4NyaNJ9HIRRmzoFeAD9z6PASYz7gSDyPWwy6iEK7riZiIF/BM6oEx/ik0GJJxz0cHPNwe/DCO14Kzo/6dx1vC46rZKZ1GfFCVyX4Vage/OBS8GuPM7gSPM0b9yHHerINwO+lDi6tDi6tDi4roieax4k8W0pyXAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,241" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="99a4b847-1e39-4414-ac18-f5ea284dd39f" SecureText="[dt_Acme_Password]" Version="V1">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" DesignTimeRectangle="468, 450, 485, 34" ElementType="InputBoxPassword" FriendlyName="'INPUT password'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='Password:' /&gt;" Guid="4781c840-c83a-4e8f-a620-54cba011f849" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAekAAAAmCAYAAADgB2NCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGDSURBVHhe7dgxisJQGIXR2f/aJCtIZyGCiAgBxZg33CEJWkxp/Itz4BZ5ef1H8tMAgJJEGgCKeov0MAyt7/vWdV3b7XZmZma2wdLd9DcdfrVGOi9yab/ft9Pp1M7ns5mZmW2wdDf9TYdfQ71GOgXPhev12u73e3s+n2ZmZrbB0t30Nx1OjxdrpFPvy+XSxnFs0zTNpwDAp6W76W86nB4v1kjnn/jtdhNoAPiC9DcdTo8Xb5HOJzcA8B3psEgDQEEiDQBFiTQAFCXSAFCUSANAUSINAEWJNAAUJdIAUJRIA0BRIg0ARYk0ABQl0gBQlEgDQFEiDQBFiTQAFCXSAFCUSANAUSINAEWJNAAUJdIAUJRIA0BRIg0ARYk0ABQl0gBQ1L+R7rquPR6P+QkA2Fo6nB4v1kj3fd8Oh0Obpmk+AQC2kv6mw+nxYo30MAx/9T4ej20cx/kUAPi0dDf9TYfT48Ua6ciLFDyX8k/czMzMPr90N/19DXS8RRoAqEOkAaCk1n4BOGRylpSr+hAAAAAASUVORK5CYII=" InformativeScreenshot="ee3ecf3120e7a9e5dd3256faaf08d61a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="FuzzySelector, Image">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="468, 425, 71, 20" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password:' tag='LABEL' type='' check:text='Password:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAYCAYAAACyVACzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGtSURBVFhH7ZTtjcMgDIZvp8xVVkHZJJkkyhiVsgMXCq9xDJT4TiedKr+Sf7T+fiB8BdNtGSyFDJZCBkshg6WQwVLIYCnEYO3BT1OYGubWI8d8oo6wPOKe/iTwXrdgRftcYL+CJZI2n4DN+LeG6rfsikI87LGc4zB1/XX/fU4x5aByDHKeS3CoE41mTEK+n9Ez1T5WRzlu3WtY1c5JSlg4BWk5Rw4PQ9OBPy3nwvKMv1gvwMmzvOD1arHDASyy2EceFtmPYLXtcntIWCgviAVEE9LI34WRFuEw61tX4GJWgkX9SgzlUR9xSRq6BasF6npqjduQrSwTNfBzmBkcPiG/ITcu9f4rQE3MWOZv5fG67zX+DC9CYQkHvyEBXr5bXX8Z3L8WPWfJAN0JrdzKzoL/ChZOnpZDjoQF9WBCtZ8/vqkPYpLJT6zczBInYwqsEkN5eJ/+DFZleVlqLAxwR/4o1kPekMtsvVlYrRrWqd4MvDZixNuq/AzFybO3pT4pmKg38tMcbEnkcKhREphYrgnr1HWHJd82FSzTSAZLIYOlkMFSyGApZLAUMli3FcI3T05eVOibXGYAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NClick ClickType="Single" DisplayName="Click on 'Login' button" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="99a4b847-1e39-4414-ac18-f5ea284dd39f" Version="V1">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/login" DesignTimeRectangle="468, 540, 60, 34" ElementType="Button" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' aaname='                             Login                         ' check:text='Login' /&gt;" Guid="ac709084-70b0-41b8-8650-2af47318c5f6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAmCAYAAAB0xJ2ZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVGhD7Zm9TsMwFIV5IiTIG7EjsTDAS1TiGRArXQoLT1B1RZ3SgW5VuqRDpS4XH//FjhxEaWoS+x7pKE2vk9zzxU6GXFDmYgB6K/X5taWbpw+6vnuhy9vnpIxMyIaMriwAFDDo6v6Vioc3Kh7f07LIhGzI6EKwAEBHhg8dnJCREVmNLACQSfLOty0yIquRBYB1EjwgQSOrEQPQWwbAABgAAwgOTtEMoD8AS5rviVaLUO10Tzeisc06WDvFowFwLkcGsKaVvgZUl0uvLu+yVl1Wcqw5nzsDJuVB/K7k9Yza5/qtIwJQ4ZtG/X0ZinY01eMNjE4ATq1Y7MTegeYzvX+EowGQTe8rmrj/y8YROnDsrKJaVDsBeOdSMLuu/ZOjAXADWMuQAIAA7Tvoh2IAYweQ/RIwTfb2EBwqgJCaxlSjRu1XlwkNqddgsyxGAKBvI9TfXm3HeCAA1OxxZ0TwmXEGD2cG6IeeVYTw8HAA/JMZAANgADo1A2gAZP9pLPuPo9l/HodQAB0MwjpJyciEbG54yAOQozIHQPQNSRfxXI0iNwAAAAAASUVORK5CYII=" InformativeScreenshot="839a9b2f506e20cecbf3261b3a6fb109.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Log In' /&gt;" SearchSteps="FuzzySelector, Image" />
+                          </uix:NClick.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Edge" IconBase64="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" InformativeScreenshot="2b14cac1cebae6c707c5388897751f03.png" Selector="&lt;html app='msedge.exe' title='ACME System 1 - Log In'/&gt;" Url="[in_AcmeSystemURL]" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
